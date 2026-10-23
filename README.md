@@ -12,10 +12,12 @@ Start a task with `/mingz-harness:poteto-mode <goal, done condition, constraints
 - Grok/Opus slugs and `setup-pstack` model rules → one Claude-only table in poteto-mode's Subagents section (`sonnet` code, `opus` judgment and prose, `haiku` mechanical). Cross-family panels become mixed opus/sonnet seats with fresh contexts.
 - `cursor-team-kit` skills → local equivalents: `/deslop` → `/simplify`, `control-ui`/`control-cli` → project verification skill, Playwright, or `/run`. `create-skill` → `writing-for-agents`.
 - Transcript paths → `~/.claude/projects/<workspace-slug>/`.
-- Dropped playbooks (Cursor cloud agents or iOS-only): Orchestrate, Autopilot-full, Autopilot-stack, Worktree cleanup, with their `orch` and `worktree-audit` scripts.
-- Not imported: reflect, teach, recall, ketchup, sharpen, bro, in-your-own-words, tdd (local `tdd` skill used instead), verification and formal-verification skills, setup-pstack, automate-me, make-bot-ui, statechart, poteto-help.
+- Cursor cloud agents → local background subagents with `isolation: "worktree"`, or cloud sessions (`claude --cloud`) for work that must outlive the session (Orchestrate, Autopilot). Orchestrate's store lives at `~/.claude/projects/<workspace-slug>/orchestrate/<project>/` (`ORCH_STORE`).
+- Worktree cleanup targets Linux/WSL: iOS simulator and Cursor cache steps → bun/npm/pnpm/uv/Docker caches; `worktree-audit.sh` scans Claude Code transcripts. It needs `jq` and a real `rg` binary on PATH.
+- `ketchup` and `bro` imported (Autopilot replies use ketchup); `/visualize` → Mermaid charts.
+- Not imported: reflect, teach, recall, sharpen, in-your-own-words, tdd (local `tdd` skill used instead), verification and formal-verification skills, setup-pstack, automate-me, make-bot-ui, statechart, poteto-help.
 
 ## Install
 
     claude plugin marketplace add ~/Projects/mingz-harness
-    claude plugin install mingz-harness@neo-local
+    claude plugin install mingz-harness@mingz-local

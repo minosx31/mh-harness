@@ -1,7 +1,8 @@
 {
-  "name": "neo-local",
+  "name": "mingz-local",
+  "description": "Mingz's local Claude Code plugins.",
   "owner": { "name": "Neo" },
   "plugins": [
-    { "name": "mingz-harness", "source": "./", "description": "Neo's Claude Code harness built on an adapted pstack core." }
+    { "name": "mingz-harness", "source": "./", "description": "Mingz's Claude Code harness built on an adapted pstack core." }
   ]
 }

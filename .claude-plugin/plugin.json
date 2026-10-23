@@ -1,7 +1,7 @@
 {
   "name": "mingz-harness",
   "version": "0.1.0",
-  "description": "Neo's Claude Code harness: an adapted core subset of poteto's pstack (playbooks, principles, how/why, architect, arena, swarm, interrogate, unslop).",
+  "description": "Mingz's Claude Code harness: an adapted core subset of poteto's pstack (playbooks, principles, how/why, architect, arena, swarm, interrogate, unslop).",
   "author": { "name": "Neo" },
   "license": "MIT"
 }
