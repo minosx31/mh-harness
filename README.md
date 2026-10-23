@@ -1,10 +1,10 @@
-# neo-harness
+# mingz-harness
 
 A Claude Code plugin: an adapted core subset of [pstack](https://github.com/cursor/plugins/tree/main/pstack) by Lauren Tan (poteto), MIT licensed (see `LICENSE.pstack`). Imported from pstack 0.15.30; the first commit is the unmodified upstream copy, so `git diff <first-commit> -- skills agents` shows every adaptation.
 
 ## Use
 
-Start a task with `/neo-harness:poteto-mode <goal, done condition, constraints>`. Other skills (`how`, `why`, `architect`, `arena`, `swarm`, `interrogate`, `blast-radius`, `correct`, `unslop`, ...) are routed by poteto-mode or typed directly. Every skill is `disable-model-invocation: true`, so it runs only when called.
+Start a task with `/mingz-harness:poteto-mode <goal, done condition, constraints>`. Other skills (`how`, `why`, `architect`, `arena`, `swarm`, `interrogate`, `blast-radius`, `correct`, `unslop`, ...) are routed by poteto-mode or typed directly. Every skill is `disable-model-invocation: true`, so it runs only when called.
 
 ## What changed from upstream
 
@@ -17,5 +17,5 @@ Start a task with `/neo-harness:poteto-mode <goal, done condition, constraints>`
 
 ## Install
 
-    claude plugin marketplace add ~/Projects/neo-harness
-    claude plugin install neo-harness@neo-local
+    claude plugin marketplace add ~/Projects/mingz-harness
+    claude plugin install mingz-harness@neo-local
