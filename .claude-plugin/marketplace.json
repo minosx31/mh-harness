@@ -1,0 +1,7 @@
+{
+  "name": "neo-local",
+  "owner": { "name": "Neo" },
+  "plugins": [
+    { "name": "neo-harness", "source": "./", "description": "Neo's Claude Code harness built on an adapted pstack core." }
+  ]
+}
