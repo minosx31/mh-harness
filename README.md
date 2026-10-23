@@ -73,7 +73,7 @@ Examples:
 
 ### Changing the harness
 
-The installed copy is a snapshot in `~/.claude/plugins/cache/`. After editing this repo, commit, then:
+The installed copy is a snapshot in `~/.claude/plugins/cache/`, and `plugin update` only installs a higher version. After editing this repo, bump `version` in `.claude-plugin/plugin.json`, commit, then:
 
     claude plugin marketplace update mingz-local && claude plugin update mingz-harness@mingz-local
 
