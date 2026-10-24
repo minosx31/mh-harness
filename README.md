@@ -1,14 +1,14 @@
-# mingz-harness
+# mh-harness
 
 A Claude Code plugin: an adapted core subset of [pstack](https://github.com/cursor/plugins/tree/main/pstack) by Lauren Tan (poteto), MIT licensed (see `LICENSE.pstack`). Imported from pstack 0.15.30; the first commit is the unmodified upstream copy, so `git diff <first-commit> -- skills agents` shows every adaptation.
 
 ## Usage
 
-Every skill is `disable-model-invocation: true`: Claude never picks one on its own. You type it, or `poteto-mode` routes to it by reading its `SKILL.md`. Skills are namespaced: `/mingz-harness:<skill>`.
+Every skill is `disable-model-invocation: true`: Claude never picks one on its own. You type it, or `poteto-mode` routes to it by reading its `SKILL.md`. Skills are namespaced: `/mh-harness:<skill>`.
 
 ### Default: start with poteto-mode
 
-    /mingz-harness:poteto-mode <goal>. Done when <pass/fail condition>. Evidence: <what proves it>. Constraints: <limits>.
+    /mh-harness:poteto-mode <goal>. Done when <pass/fail condition>. Evidence: <what proves it>. Constraints: <limits>.
 
 poteto-mode picks a playbook, copies its steps into a todo list (skipped steps stay, marked `skip: <reason>`), routes to the skills it needs, delegates code to `poteto-agent` subagents, and labels each claim measured, inferred, or guessed before reporting done.
 
@@ -22,10 +22,10 @@ Prompting rules (from pstack):
 
 Examples:
 
-    /mingz-harness:poteto-mode Fix: /api/orders returns 500 when cart is empty. Done when a request with an empty cart returns 400 with a validation message and a regression test covers it.
-    /mingz-harness:poteto-mode Add CSV export to the reports page. Done when the button downloads a file matching the table's filtered rows. Don't add dependencies.
-    /mingz-harness:poteto-mode Babysit PR 142 to merge-ready.
-    /mingz-harness:poteto-mode Migrate every caller of legacyFetch to apiClient and delete legacyFetch. I'm going to bed; run until done.
+    /mh-harness:poteto-mode Fix: /api/orders returns 500 when cart is empty. Done when a request with an empty cart returns 400 with a validation message and a regression test covers it.
+    /mh-harness:poteto-mode Add CSV export to the reports page. Done when the button downloads a file matching the table's filtered rows. Don't add dependencies.
+    /mh-harness:poteto-mode Babysit PR 142 to merge-ready.
+    /mh-harness:poteto-mode Migrate every caller of legacyFetch to apiClient and delete legacyFetch. I'm going to bed; run until done.
 
 ### Playbooks poteto-mode routes to
 
@@ -69,13 +69,13 @@ Examples:
 | `typescript-best-practices` | Reading or editing `.ts` / `.tsx`. |
 | `ketchup` | Catch me up on what changed since my last message. |
 | `bro` | Restate the last reply in plain words. |
-| `principle-<name>` | Steer with one named rule, e.g. `/mingz-harness:principle-laziness-protocol`. Full list: `ls skills \| grep principle-`. |
+| `principle-<name>` | Steer with one named rule, e.g. `/mh-harness:principle-laziness-protocol`. Full list: `ls skills \| grep principle-`. |
 
 ### Changing the harness
 
 The installed copy is a snapshot in `~/.claude/plugins/cache/`, and `plugin update` only installs a higher version. After editing this repo, bump `version` in `.claude-plugin/plugin.json`, commit, then:
 
-    claude plugin marketplace update mingz-local && claude plugin update mingz-harness@mingz-local
+    claude plugin marketplace update mh-local && claude plugin update mh-harness@mh-local
 
 New sessions pick up the change. To see what upstream pstack changed since the import, diff its current `pstack/skills/` against this repo's first commit.
 
@@ -92,5 +92,5 @@ New sessions pick up the change. To see what upstream pstack changed since the i
 
 ## Install
 
-    claude plugin marketplace add ~/Projects/mingz-harness
-    claude plugin install mingz-harness@mingz-local
+    claude plugin marketplace add ~/Projects/mh-harness
+    claude plugin install mh-harness@mh-local
