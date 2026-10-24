@@ -4,6 +4,8 @@ A Claude Code plugin: an adapted core subset of [pstack](https://github.com/curs
 
 ## Usage
 
+Longer walkthrough with prompts per stage (understand, design, build, ship, overnight): [`docs/GUIDE.md`](docs/GUIDE.md).
+
 Every skill is `disable-model-invocation: true`: Claude never picks one on its own. You type it, or `poteto-mode` routes to it by reading its `SKILL.md`. Skills are namespaced: `/mh-harness:<skill>`.
 
 ### Default: start with poteto-mode
@@ -54,6 +56,14 @@ Examples:
 |---|---|
 | `how` | You want a walkthrough of how code works, or where a change belongs. |
 | `why` | You want the design rationale or history, with evidence cited. |
+| `teach` | You want to actually understand a change or subsystem; runs `how` + `why` and explains plainly. |
+| `recall` | Rebuild your recent context on a topic from past transcripts plus git/gh and the shared record. |
+| `in-your-own-words` | Have it restate your goal and problem before any work. |
+| `sharpen` | Rewrite a prompt to be deeper, not bigger, before you send it. Does not do the task. |
+| `tdd` | Failing test first, when the bug has a cheap local test path. |
+| `create-verification-skill` | Generate `.claude/skills/verify-<app>/` so agents can launch, drive, and prove your app's behavior. |
+| `maintain-verification-skill` | Audit that verify skill and its feature map against the current app. |
+| `reflect` | After a session that taught you something: three reviewers propose skill edits; you approve each. |
 | `architect` | Settle types, signatures, and module shape before implementing. Add "with checkpoint" to stop before code. |
 | `arena` | Compare N competing designs or implementations, pick a base, graft the best parts. |
 | `swarm` | Fan out parallel workers for coverage (test matrix, many files, races). |
@@ -88,7 +98,9 @@ New sessions pick up the change. To see what upstream pstack changed since the i
 - Cursor cloud agents → local background subagents with `isolation: "worktree"`, or cloud sessions (`claude --cloud`) for work that must outlive the session (Orchestrate, Autopilot). Orchestrate's store lives at `~/.claude/projects/<workspace-slug>/orchestrate/<project>/` (`ORCH_STORE`).
 - Worktree cleanup targets Linux/WSL: iOS simulator and Cursor cache steps → bun/npm/pnpm/uv/Docker caches; `worktree-audit.sh` scans Claude Code transcripts. It needs `jq` and a real `rg` binary on PATH.
 - `ketchup` and `bro` imported (Autopilot replies use ketchup); `/visualize` → Mermaid charts.
-- Not imported: reflect, teach, recall, sharpen, in-your-own-words, tdd (local `tdd` skill used instead), verification and formal-verification skills, setup-pstack, automate-me, make-bot-ui, statechart, poteto-help.
+- Added in 0.3.0 from upstream 0.15.32: recall, teach, sharpen, in-your-own-words, tdd, reflect, create-verification-skill, maintain-verification-skill. Transcript paths → `~/.claude/projects/<slug>/<session-id>.jsonl`; `.cursor/skills` → `.claude/skills`; reflect's Grok tooling seat → `sonnet`, `create-skill` → `writing-for-agents`, and edits to harness skills go to this repo instead of a `~/.cursor/skills` copy; teach's image generation → ASCII sketches or screenshots.
+- poteto-mode re-reads its active playbook after a context compaction. Claude Code re-attaches invoked skills on compaction (checked in a compacted transcript: the `invoked_skills` attachment carried poteto-mode's full SKILL.md) but not the playbook file the agent read.
+- Not imported: setup-pstack, automate-me, poteto-help, make-bot-ui, statechart, ketchup-video, formal-verification skills.
 
 ## Install
 

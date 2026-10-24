@@ -1,7 +1,7 @@
 {
   "name": "mh-harness",
-  "version": "0.2.1",
-  "description": "MH's Claude Code harness: an adapted core subset of poteto's pstack (playbooks, principles, how/why, architect, arena, swarm, interrogate, unslop).",
+  "version": "0.3.0",
+  "description": "MH's Claude Code harness: an adapted core subset of poteto's pstack (playbooks, principles, how/why, architect, arena, swarm, interrogate, unslop, recall, teach, tdd, verification skills).",
   "author": { "name": "Neo" },
   "license": "MIT"
 }
