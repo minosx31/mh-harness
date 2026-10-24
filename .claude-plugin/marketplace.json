@@ -1,8 +1,8 @@
 {
   "name": "mh-local",
-  "description": "Mingz's local Claude Code plugins.",
+  "description": "MH's local Claude Code plugins.",
   "owner": { "name": "Neo" },
   "plugins": [
-    { "name": "mh-harness", "source": "./", "description": "Mingz's Claude Code harness built on an adapted pstack core." }
+    { "name": "mh-harness", "source": "./", "description": "MH's Claude Code harness built on an adapted pstack core." }
   ]
 }
